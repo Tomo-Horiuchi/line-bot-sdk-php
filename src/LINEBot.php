@@ -448,4 +448,15 @@ class LINEBot
     {
         return $this->httpClient->get($this->endpointBase . '/v2/bot/richmenu/list');
     }
+    
+    /**
+     * Gets a list of all uploaded rich menus.
+     *
+     * @return Response
+     */
+    public function createLinkToken($userId)
+    {
+        $url = sprintf('%s/v2/bot/user/%s/linkToken', $this->endpointBase, urlencode($userId));
+        return $this->httpClient->post($url, []);
+    }
 }
